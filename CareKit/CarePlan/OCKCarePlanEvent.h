@@ -66,7 +66,13 @@ OCK_CLASS_AVAILABLE
 //AVEXIA
 //We create a subclass of OCKCarePlanEvents for special alerts and items
 //- (instancetype)init NS_UNAVAILABLE;
+
+// used when adding extra events to the schedule for a day
+- (instancetype)initWithNumberOfDaysSinceStart:(NSUInteger)numberOfDaysSinceStart
+                          occurrenceIndexOfDay:(NSUInteger)occurrenceIndexOfDay
+                                      activity:(OCKCarePlanActivity *)activity;
 //AVEXIA
+
 
 /**
  The index of this event on a particular date. 

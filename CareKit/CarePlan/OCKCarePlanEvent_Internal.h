@@ -39,10 +39,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface OCKCarePlanEvent () <OCKCoreDataObjectMirroring, NSCopying>
 
-- (instancetype)initWithNumberOfDaysSinceStart:(NSUInteger)numberOfDaysSinceStart
-                          occurrenceIndexOfDay:(NSUInteger)occurrenceIndexOfDay
-                                      activity:(OCKCarePlanActivity *)activity;
-
+//AVEXIA
+//- (instancetype)initWithNumberOfDaysSinceStart:(NSUInteger)numberOfDaysSinceStart
+//                          occurrenceIndexOfDay:(NSUInteger)occurrenceIndexOfDay
+//                                      activity:(OCKCarePlanActivity *)activity;
+//AVEXIA
 @property (nonatomic) OCKCarePlanEventState state;
 
 @property (nonatomic, nullable) OCKCarePlanEventResult *result;
