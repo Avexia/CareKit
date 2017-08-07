@@ -203,6 +203,10 @@ OCK_CLASS_AVAILABLE
  */
 @property (nonatomic) BOOL showEdgeIndicators;
 
+/**
+ Refreshes the screen for Profile and Contacts
+ */
+- (void)refreshView;
 @end
 
 NS_ASSUME_NONNULL_END

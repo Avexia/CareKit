@@ -116,6 +116,15 @@
     [self updateHeaderView];
 }
 
+//AVEXIA
+- (void)refreshView {
+	_headerView.patient = _patient;
+	[self prepareHeaderView];
+	[self createSectionedContacts];
+	[_tableView reloadData];
+}
+//AVEXIA
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     NSAssert(self.navigationController, @"OCKConnectViewController must be embedded in a navigation controller.");
