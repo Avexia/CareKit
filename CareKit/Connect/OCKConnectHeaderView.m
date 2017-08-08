@@ -34,8 +34,8 @@
 #import "OCKLabel.h"
 
 
-static const CGFloat TopMargin = 15.0;
-static const CGFloat BottomMargin = 15.0;
+static const CGFloat TopMargin = 5.0;
+static const CGFloat BottomMargin = 5.0;
 static const CGFloat LeadingMargin = 20.0;
 static const CGFloat TrailingMargin = 20.0;
 static const CGFloat VerticalMargin = 10.0;
