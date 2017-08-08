@@ -144,7 +144,7 @@ NS_ASSUME_NONNULL_BEGIN
  It includes a master view and a detail view. Therefore, it must be embedded inside a `UINavigationController`.
  */
 OCK_CLASS_AVAILABLE
-@interface OCKConnectViewController : UIViewController <MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate>
+@interface OCKConnectViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate>
 
 /**
  Returns an initialized connect view controller using the specified contacts.
@@ -202,6 +202,8 @@ OCK_CLASS_AVAILABLE
  The default value is NO.
  */
 @property (nonatomic) BOOL showEdgeIndicators;
+
+- (void)setContacts:(NSArray<OCKContact *> *)contacts reload:(BOOL)reload;
 
 /**
  Refreshes the screen for Profile and Contacts

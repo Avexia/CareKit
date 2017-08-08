@@ -29,8 +29,7 @@
  */
 
 
-#import <CareKit/CareKit.h>
-
+@import UIKit;
 
 @interface OCKTableViewCell : UITableViewCell
 

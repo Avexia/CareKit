@@ -90,3 +90,6 @@
 #import <CareKit/OCKCareCardButton.h>
 #import <CareKit/OCKRingView.h>
 #import <CareKit/OCKLabel.h>
+#import <CareKit/OCKTableViewCell.h>
+#import <CareKit/OCKConnectTableViewCell.h>
+

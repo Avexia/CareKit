@@ -41,7 +41,7 @@
 #import "OCKConnectHeaderView.h"
 
 
-@interface OCKConnectViewController() <UITableViewDelegate, UITableViewDataSource, UIViewControllerPreviewingDelegate, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate>
+@interface OCKConnectViewController() <UIViewControllerPreviewingDelegate, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate>
 
 @end
 
@@ -131,10 +131,16 @@
 }
 
 - (void)setContacts:(NSArray<OCKContact *> *)contacts {
-    _contacts = OCKArrayCopyObjects(contacts);
-    [self prepareHeaderView];
-    [self createSectionedContacts];
-    [_tableView reloadData];
+	[self setContacts:contacts reload:TRUE];
+}
+
+- (void)setContacts:(NSArray<OCKContact *> *)contacts reload:(BOOL)reload {
+	_contacts = OCKArrayCopyObjects(contacts);
+	[self prepareHeaderView];
+	[self createSectionedContacts];
+	
+	if (reload)
+		[_tableView reloadData];
 }
 
 - (void)setDataSource:(id<OCKConnectViewControllerDataSource>)dataSource {
@@ -240,16 +246,20 @@
     }
     
     NSMutableArray *careTeamContacts = [NSMutableArray new];
-    NSMutableArray *personalContacts = [NSMutableArray new];
-    
+	NSMutableArray *personalContacts = [NSMutableArray new];
+	NSMutableArray *socialContacts = [NSMutableArray new];
+
     for (OCKContact *contact in self.contacts) {
         switch (contact.type) {
             case OCKContactTypeCareTeam:
                 [careTeamContacts addObject:contact];
                 break;
-            case OCKContactTypePersonal:
-                [personalContacts addObject:contact];
-                break;
+			case OCKContactTypePersonal:
+				[personalContacts addObject:contact];
+				break;
+			case OCKContactTypeSocial:
+				[socialContacts addObject:contact];
+				break;
         }
     }
     
@@ -258,10 +268,15 @@
         [_sectionTitles addObject:OCKLocalizedString(@"CARE_TEAM_SECTION_TITLE", nil)];
     }
     
-    if (personalContacts.count > 0) {
-        [_sectionedContacts addObject:[personalContacts copy]];
-        [_sectionTitles addObject:OCKLocalizedString(@"PERSONAL_SECTION_TITLE", nil)];
-    }
+	if (personalContacts.count > 0) {
+		[_sectionedContacts addObject:[personalContacts copy]];
+		[_sectionTitles addObject:OCKLocalizedString(@"PERSONAL_SECTION_TITLE", nil)];
+	}
+	
+	if (socialContacts.count > 0) {
+		[_sectionedContacts addObject:[socialContacts copy]];
+		[_sectionTitles addObject:OCKLocalizedString(@"PERSONAL_SECTION_TITLE", nil)];
+	}
 }
 
 - (void)prepareHeaderView {

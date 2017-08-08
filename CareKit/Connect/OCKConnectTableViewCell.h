@@ -29,12 +29,11 @@
  */
 
 
-#import <CareKit/CareKit.h>
 #import "OCKTableViewCell.h"
-
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class OCKContact;
 @interface OCKConnectTableViewCell : OCKTableViewCell
 
 @property (nonatomic) OCKContact *contact;

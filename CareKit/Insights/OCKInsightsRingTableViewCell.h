@@ -29,8 +29,8 @@
  */
 
 
+#import <CareKit/CareKit.h>
 #import "OCKTableViewCell.h"
-
 
 @interface OCKInsightsRingTableViewCell : OCKTableViewCell
 

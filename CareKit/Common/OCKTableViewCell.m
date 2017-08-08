@@ -31,7 +31,6 @@
 
 #import "OCKTableViewCell.h"
 
-
 @implementation OCKTableViewCell {
     UIView *_leadingEdge;
     NSMutableArray *_constraints;
