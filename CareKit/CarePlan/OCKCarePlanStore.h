@@ -175,6 +175,22 @@ You can use the watch delegate to subscribe a watch app to notifications of chan
                 completion:(void (^)(BOOL success, NSArray<OCKCarePlanActivity *> *activities, NSError * _Nullable error))completion;
 
 /**
+ AVEXIA
+ Gets the number of events with results this activity has in the date range
+ 
+ @param     identifier  An activity identifier.
+ @param     startDate       Start date of the date range.
+ @param     endDate         End date of the date range.
+ 
+ @return 	count of events
+ */
+- (NSInteger)countOfEventsWithResultsForActivityIdentifier:(NSString *)identifier
+											startDate:(NSDateComponents *)startDate
+											  endDate:(NSDateComponents *)endDate;
+
+//AVEXIA
+
+/**
  Gets the activity associated with the provided identifier.
  
  @param     identifier  An activity identifier.

@@ -379,6 +379,54 @@ static NSString * const OCKAttributeNameDayIndex = @"numberOfDaysSinceStart";
     return [self fetchActivitiesWithPredicate:predicate completion:completion];
 }
 
+//this runs on the main thread
+//AVEXIA
+- (NSInteger)countOfEventsWithResultsForActivityIdentifier:(NSString *)identifier
+											startDate:(NSDateComponents *)startDate
+											  endDate:(NSDateComponents *)endDate {
+	NSParameterAssert(identifier);
+	OCKThrowInvalidArgumentExceptionIfNil(startDate);
+	startDate = [startDate validatedDateComponents];
+	OCKThrowInvalidArgumentExceptionIfNil(endDate);
+	endDate = [endDate validatedDateComponents];
+
+	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"identifier = %@", identifier];
+	NSError *errorOut = nil;
+	OCKCarePlanActivity* activity = [self block_fetchItemsWithEntityName:OCKEntityNameActivity predicate:predicate class:[OCKCarePlanActivity class] error:&errorOut].firstObject;
+	
+	if (activity == nil) return 0;
+	
+	NSDateComponents *day = startDate;
+	NSMutableArray *eventGroup = [NSMutableArray array];
+	while ( [day isEarlierThan:endDate] || [day isEqualToDate:endDate] ) {
+		errorOut = nil;
+		OCKCareSchedule *schedule = activity.schedule;
+		NSUInteger numberOfEvents = [schedule numberOfEventsOnDate:day];
+		if (numberOfEvents > 0) {
+			NSUInteger numberOfDaySinceStart = [schedule numberOfDaySinceStart:day];
+
+			NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K = %d AND %K = %@",
+									  OCKAttributeNameDayIndex, numberOfDaySinceStart, @"activity.identifier", activity.identifier];
+			NSArray<OCKCarePlanEvent *> *savedEvents = (NSArray<OCKCarePlanEvent *> *)[self block_fetchItemsWithEntityName:OCKEntityNameEvent
+																													   predicate:predicate
+																														   class:[OCKCarePlanEvent class]
+																														   error:&errorOut];
+			
+			for (NSInteger index = 0 ; index < numberOfEvents ; index++ ) {
+				OCKCarePlanEvent *event = [savedEvents filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"occurrenceIndexOfDay = %d", index]].firstObject;
+				if (event.result) {
+					[eventGroup addObject:event];
+				}
+			}
+		}
+		
+		day = [day nextDay];
+	}
+
+	return eventGroup.count;
+}
+//AVEXIA
+
 - (void)activityForIdentifier:(NSString *)identifier
                    completion:(void (^)(BOOL success, OCKCarePlanActivity *activity, NSError *error))completion {
     NSParameterAssert(identifier);
