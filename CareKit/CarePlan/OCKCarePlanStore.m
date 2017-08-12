@@ -970,7 +970,7 @@ static NSString * const OCKAttributeNameDayIndex = @"numberOfDaysSinceStart";
     }
     
     __weak typeof(self) weakSelf = self;
-    [self fetchActivitiesWithPredicate:[NSPredicate predicateWithFormat:@"type = %d", type]
+    [self fetchActivitiesWithPredicate:[NSPredicate predicateWithFormat:@"type = %d AND enabled == TRUE", type]
                             completion:^(BOOL success, NSArray<OCKCarePlanActivity *> *activities, NSError *error) {
                                 if (error) {
                                     completion(YES, error);
@@ -984,6 +984,7 @@ static NSString * const OCKAttributeNameDayIndex = @"numberOfDaysSinceStart";
                                             NSUInteger completed = 0;
                                             NSMutableArray *predicates = [NSMutableArray new];
                                             for (OCKCarePlanActivity *activity in activities) {
+												
                                                 NSUInteger count = [activity.schedule numberOfEventsOnDate:day];
                                                 
                                                 if (count > 0 && !activity.optional) {

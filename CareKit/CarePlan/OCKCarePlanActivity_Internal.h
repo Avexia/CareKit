@@ -45,6 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface OCKCarePlanActivity () <OCKCoreDataObjectMirroring>
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder NS_DESIGNATED_INITIALIZER;
+@property (nonatomic) BOOL enabled;
 
 @end
 

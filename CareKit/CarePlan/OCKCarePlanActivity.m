@@ -80,6 +80,7 @@
         _userInfo = [userInfo copy];
         _thresholds = thresholds;
         _optional = optional;
+		_enabled = YES;
     }
     return self;
 }
@@ -226,7 +227,11 @@
                            userInfo:cdObject.userInfo
                          thresholds:cdObject.thresholds
                            optional:cdObject.optional.boolValue];
-    
+	
+	//AVEXIA
+	//I could have put this into the init…but I really didn't want to update the init object with a value that I think is better disabled in the future
+	self.enabled = cdObject.enabled.boolValue;
+	
     return self;
 }
 
