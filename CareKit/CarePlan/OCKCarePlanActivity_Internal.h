@@ -66,6 +66,7 @@ insertIntoManagedObjectContext:(nullable NSManagedObjectContext *)context
 @property (nullable, nonatomic, retain) NSString *instructions;
 @property (nullable, nonatomic, retain) NSData *imageURL;
 @property (nullable, nonatomic, retain) NSNumber *type;
+@property (nullable, nonatomic, retain) NSNumber *enabled;
 @property (nullable, nonatomic, retain) NSNumber *resultResettable;
 @property (nullable, nonatomic, retain) NSDictionary *userInfo;
 @property (nullable, nonatomic, retain) NSArray<NSArray<OCKCarePlanThreshold *> *> *thresholds;

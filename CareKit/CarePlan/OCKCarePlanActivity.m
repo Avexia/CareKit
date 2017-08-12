@@ -249,7 +249,8 @@
         OCK_DECODE_BOOL(coder, resultResettable);
         OCK_DECODE_OBJ_CLASS(coder, userInfo, NSDictionary);
         OCK_DECODE_OBJ_CLASS(coder, thresholds, NSArray<NSArray<OCKCarePlanThreshold *> *>);
-        OCK_DECODE_BOOL(coder, optional);
+		OCK_DECODE_BOOL(coder, optional);
+		OCK_DECODE_BOOL(coder, enabled);
     }
     return self;
 }
@@ -268,6 +269,7 @@
     OCK_ENCODE_OBJ(coder, userInfo);
     OCK_ENCODE_OBJ(coder, thresholds);
     OCK_ENCODE_BOOL(coder, optional);
+	OCK_ENCODE_BOOL(coder, enabled);
 }
 
 - (BOOL)isEqual:(id)object {
@@ -287,7 +289,8 @@
             (self.resultResettable == castObject.resultResettable) &&
             OCKEqualObjects(self.userInfo, castObject.userInfo) &&
             OCKEqualObjects(self.thresholds, castObject.thresholds) &&
-            (self.optional == castObject.optional));
+			(self.optional == castObject.optional) && 
+			(self.enabled == castObject.enabled));
 }
 
 - (instancetype)copyWithZone:(NSZone *)zone {
@@ -304,7 +307,8 @@
     item->_resultResettable = _resultResettable;
     item->_userInfo = _userInfo;
     item->_thresholds = [_thresholds copy];
-    item->_optional = _optional;
+	item->_optional = _optional;
+	item->_enabled = _enabled;
     return item;
 }
 
@@ -336,7 +340,8 @@ insertIntoManagedObjectContext:(NSManagedObjectContext *)context
         self.userInfo = item.userInfo;
         self.resultResettable  = @(item.resultResettable);
         self.thresholds = item.thresholds;
-        self.optional = @(item.optional);
+		self.optional = @(item.optional);
+		self.enabled = @(item.enabled);
     }
     return self;
 }
@@ -358,5 +363,6 @@ insertIntoManagedObjectContext:(NSManagedObjectContext *)context
 @dynamic userInfo;
 @dynamic thresholds;
 @dynamic optional;
+@dynamic enabled;
 
 @end

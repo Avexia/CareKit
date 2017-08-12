@@ -34,30 +34,33 @@
 
 //AVEXIA
 static const CGFloat ButtonSize = 24.0;
+@interface UIColor (Special)
+- (UIColor *)colorAdjustingColorBy:(CGFloat)percentageOfColorToKeep;
+@end
 
 @implementation OCKCareCardButton {
 	CAShapeLayer *_circleLayer;
 }
 
--(instancetype)initWithCoder:(NSCoder *)aDecoder {
-	id myself = [super initWithCoder:aDecoder];
-	
-	[self setupCircle];
-	return myself;
-}
-
--(instancetype)initWithFrame:(CGRect)frame {
-	id myself = [super initWithFrame:frame];
-	
-	[self setupCircle];
-	return myself;
-}
+//-(instancetype)initWithCoder:(NSCoder *)aDecoder {
+//	id myself = [super initWithCoder:aDecoder];
+//
+//	[self setupCircle];
+//	return myself;
+//}
+//
+//-(instancetype)initWithFrame:(CGRect)frame {
+//	id myself = [super initWithFrame:frame];
+//
+//	[self setupCircle];
+//	return myself;
+//}
 
 - (void)setupCircle{
 	self.backgroundColor = UIColor.clearColor;
 	if (!_circleLayer) {
 		_circleLayer = [CAShapeLayer layer];
-		_circleLayer.strokeColor = self.tintColor.CGColor;
+		_circleLayer.strokeColor = [self.tintColor colorAdjustingColorBy:0.85].CGColor;
 		_circleLayer.fillColor = [UIColor clearColor].CGColor;
 		[self updateFillColorForSelection:self.isSelected];
 		_circleLayer.lineWidth = 2.5;
@@ -70,6 +73,7 @@ static const CGFloat ButtonSize = 24.0;
 -(void)layoutSubviews {
 	[super layoutSubviews];
 	
+	[self setupCircle];
 	_circleLayer.contentsGravity = kCAGravityCenter;
 	CGSize size = self.bounds.size;
 	_circleLayer.position = CGPointMake(size.width/2, size.height/2);
@@ -105,3 +109,49 @@ static const CGFloat ButtonSize = 24.0;
 //AVEXIA
 
 @end
+
+//UIColor
+
+@implementation UIColor (Special)
+- (UIColor *)colorAdjustingColorBy:(CGFloat)percentageOfColorToKeep
+{
+	// oldComponents is the array INSIDE the original color
+	// changing these changes the original, so we copy it
+	CGFloat *oldComponents = (CGFloat *)CGColorGetComponents([self CGColor]);
+	CGFloat newComponents[4];
+	
+	size_t numComponents = CGColorGetNumberOfComponents([self CGColor]);
+	
+	switch (numComponents)
+	{
+		case 2:
+		{
+			//grayscale
+			newComponents[0] = oldComponents[0]*percentageOfColorToKeep;
+			newComponents[1] = oldComponents[0]*percentageOfColorToKeep;
+			newComponents[2] = oldComponents[0]*percentageOfColorToKeep;
+			newComponents[3] = oldComponents[1];
+			break;
+		}
+		case 4:
+		{
+			//RGBA
+			newComponents[0] = oldComponents[0]*percentageOfColorToKeep;
+			newComponents[1] = oldComponents[1]*percentageOfColorToKeep;
+			newComponents[2] = oldComponents[2]*percentageOfColorToKeep;
+			newComponents[3] = oldComponents[3];
+			break;
+		}
+	}
+	
+	CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+	CGColorRef newColor = CGColorCreate(colorSpace, newComponents);
+	CGColorSpaceRelease(colorSpace);
+	
+	UIColor *retColor = [UIColor colorWithCGColor:newColor];
+	CGColorRelease(newColor);
+	
+	return retColor;
+}
+@end
+

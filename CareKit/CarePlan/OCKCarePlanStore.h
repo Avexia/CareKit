@@ -229,7 +229,17 @@ You can use the watch delegate to subscribe a watch app to notifications of chan
  @param     completion      A completion block that returns the result of the operation.
  */
 - (void)removeActivity:(OCKCarePlanActivity *)activity
-            completion:(void (^)(BOOL success, NSError * _Nullable error))completion;
+			completion:(void (^)(BOOL success, NSError * _Nullable error))completion;
+
+/**
+ Deactivate an activity from this store.
+ All the events related to the activity will also be removed.
+ 
+ @param     activity        The activity object to remove.
+ @param     completion      A completion block that returns the result of the operation.
+ */
+- (void)deactivateActivity:(OCKCarePlanActivity *)activity
+				completion:(void (^)(BOOL success, NSError * _Nullable error))completion;
 
 /**
 Get all the `OCKCarePlanEvent` objects for a given date.

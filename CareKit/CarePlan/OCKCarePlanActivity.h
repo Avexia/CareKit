@@ -296,7 +296,15 @@ OCK_CLASS_AVAILABLE
  An optional activity does not count towards total completion.
  Default value is NO.
  */
+
 @property (nonatomic, readonly) BOOL optional;
+/**
+ Whether or not the activity is enabled.
+ 
+ A disabled activity is used for archival purposes only
+ Default value is YES.
+ */
+@property (nonatomic, readonly) BOOL enabled;
 
 @end
 

@@ -527,6 +527,49 @@ static NSString * const OCKAttributeNameDayIndex = @"numberOfDaysSinceStart";
     }];
 }
 
+- (void)deactivateActivity:(OCKCarePlanActivity *)activity
+				completion:(void (^)(BOOL success, NSError *error))completion {
+	
+	OCKThrowInvalidArgumentExceptionIfNil(activity);
+	
+	NSError *errorOut = nil;
+	NSManagedObjectContext *context = _managedObjectContext;
+	
+	if (context == nil) {
+		completion(NO, errorOut);
+		return;
+	}
+	
+	__block BOOL result = NO;
+	__weak typeof(self) weakSelf = self;
+	[context performBlock:^{
+		__strong typeof(weakSelf) strongSelf = weakSelf;
+		
+		NSError *errorOut = nil;
+		result = [strongSelf block_alterItemWithEntityName:OCKEntityNameActivity
+												identifier:activity.identifier
+												   opBlock:^BOOL(NSManagedObject *cdObject, NSManagedObjectContext *context) {
+													   OCKCDCarePlanActivity *cdActivity = (OCKCDCarePlanActivity *)cdObject;
+													   cdActivity.enabled = @NO;
+													   return YES;
+												   } error:&errorOut];
+		OCKCarePlanActivity *modifiedActivity;
+		if (result) {
+			_cachedActivities = nil;
+			modifiedActivity = [strongSelf block_fetchItemWithEntityName:OCKEntityNameActivity
+															  identifier:activity.identifier
+																   class:[OCKCarePlanActivity class]
+																   error:&errorOut];
+		}
+		dispatch_async(_queue, ^{
+			completion(result, errorOut);
+			[self handleActivityListChange:result type:activity.type];
+		});
+	}];
+
+}
+
+
 - (void)removeActivity:(OCKCarePlanActivity *)activity
             completion:(void (^)(BOOL success, NSError *error))completion {
     OCKThrowInvalidArgumentExceptionIfNil(activity);
