@@ -34,11 +34,11 @@
 		241707D01C9A3AB7005D7123 /* OCKGroupedBarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 241707B41C9A3AB7005D7123 /* OCKGroupedBarChartView.m */; };
 		241707D11C9A3AB7005D7123 /* OCKInsightItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 241707B51C9A3AB7005D7123 /* OCKInsightItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		241707D21C9A3AB7005D7123 /* OCKInsightItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 241707B61C9A3AB7005D7123 /* OCKInsightItem.m */; };
-		241707D31C9A3AB7005D7123 /* OCKInsightsChartTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 241707B71C9A3AB7005D7123 /* OCKInsightsChartTableViewCell.h */; };
+		241707D31C9A3AB7005D7123 /* OCKInsightsChartTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 241707B71C9A3AB7005D7123 /* OCKInsightsChartTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		241707D41C9A3AB7005D7123 /* OCKInsightsChartTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 241707B81C9A3AB7005D7123 /* OCKInsightsChartTableViewCell.m */; };
-		241707D51C9A3AB7005D7123 /* OCKInsightsMessageTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 241707B91C9A3AB7005D7123 /* OCKInsightsMessageTableViewCell.h */; };
+		241707D51C9A3AB7005D7123 /* OCKInsightsMessageTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 241707B91C9A3AB7005D7123 /* OCKInsightsMessageTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		241707D61C9A3AB7005D7123 /* OCKInsightsMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 241707BA1C9A3AB7005D7123 /* OCKInsightsMessageTableViewCell.m */; };
-		241707D91C9A3AB7005D7123 /* OCKInsightsTableViewHeaderView.h in Headers */ = {isa = PBXBuildFile; fileRef = 241707BD1C9A3AB7005D7123 /* OCKInsightsTableViewHeaderView.h */; };
+		241707D91C9A3AB7005D7123 /* OCKInsightsTableViewHeaderView.h in Headers */ = {isa = PBXBuildFile; fileRef = 241707BD1C9A3AB7005D7123 /* OCKInsightsTableViewHeaderView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		241707DA1C9A3AB7005D7123 /* OCKInsightsTableViewHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 241707BE1C9A3AB7005D7123 /* OCKInsightsTableViewHeaderView.m */; };
 		241707DB1C9A3AB7005D7123 /* OCKInsightsViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 241707BF1C9A3AB7005D7123 /* OCKInsightsViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		241707DC1C9A3AB7005D7123 /* OCKInsightsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 241707C01C9A3AB7005D7123 /* OCKInsightsViewController.m */; };
@@ -166,7 +166,7 @@
 		BAD328631DB01D650021A773 /* OCKContactInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD328611DB01D650021A773 /* OCKContactInfo.m */; };
 		BAD328661DB024040021A773 /* OCKRingItem.h in Headers */ = {isa = PBXBuildFile; fileRef = BAD328641DB024040021A773 /* OCKRingItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BAD328671DB024040021A773 /* OCKRingItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD328651DB024040021A773 /* OCKRingItem.m */; };
-		BAD3286A1DB028AF0021A773 /* OCKInsightsRingTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = BAD328681DB028AF0021A773 /* OCKInsightsRingTableViewCell.h */; };
+		BAD3286A1DB028AF0021A773 /* OCKInsightsRingTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = BAD328681DB028AF0021A773 /* OCKInsightsRingTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BAD3286B1DB028AF0021A773 /* OCKInsightsRingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD328691DB028AF0021A773 /* OCKInsightsRingTableViewCell.m */; };
 /* End PBXBuildFile section */
 

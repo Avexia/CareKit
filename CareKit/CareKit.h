@@ -93,3 +93,8 @@
 #import <CareKit/OCKTableViewCell.h>
 #import <CareKit/OCKConnectTableViewCell.h>
 
+#import <CareKit/OCKInsightsMessageTableViewCell.h>
+#import <CareKit/OCKInsightsChartTableViewCell.h>
+#import <CareKit/OCKInsightsRingTableViewCell.h>
+#import <CareKit/OCKInsightsTableViewHeaderView.h>
+

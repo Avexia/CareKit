@@ -31,6 +31,7 @@
 
 #import <CareKit/CareKit.h>
 #import "OCKTableViewCell.h"
+@class OCKRingItem;
 
 @interface OCKInsightsRingTableViewCell : OCKTableViewCell
 

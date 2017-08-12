@@ -31,7 +31,7 @@
 
 #import <CareKit/CareKit.h>
 #import "OCKTableViewCell.h"
-
+@class OCKMessageItem;
 
 @interface OCKInsightsMessageTableViewCell : OCKTableViewCell
 
