@@ -38,7 +38,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol OCKConnectViewControllerDelegate;
+@class OCKConnectViewController;
+@protocol OCKConnectViewControllerDelegate, OCKContactSharingTableViewCellDelegate, OCKContactInfoTableViewCellDelegate;
 
 @interface OCKConnectDetailViewController : UITableViewController <MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate, OCKContactInfoTableViewCellDelegate, OCKContactSharingTableViewCellDelegate>
 

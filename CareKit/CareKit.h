@@ -91,7 +91,11 @@
 #import <CareKit/OCKRingView.h>
 #import <CareKit/OCKLabel.h>
 #import <CareKit/OCKTableViewCell.h>
+#import <CareKit/OCKContactSharingTableViewCell.h>
+#import <CareKit/OCKContactInfoTableViewCell.h>
+
 #import <CareKit/OCKConnectTableViewCell.h>
+#import <CareKit/OCKConnectDetailViewController.h>
 
 #import <CareKit/OCKInsightsMessageTableViewCell.h>
 #import <CareKit/OCKInsightsChartTableViewCell.h>
