@@ -29,12 +29,12 @@
  */
 
 
-#import <CareKit/CareKit.h>
-
+//#import <CareKit/CareKit.h>
+@import UIKit;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class OCKContactSharingTableViewCell;
+@class OCKContactSharingTableViewCell, OCKContact;
 
 @protocol OCKContactSharingTableViewCellDelegate <NSObject>
 

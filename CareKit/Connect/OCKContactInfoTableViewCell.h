@@ -29,13 +29,14 @@
  */
 
 
-#import <CareKit/CareKit.h>
+//#import <CareKit/CareKit.h>
+@import UIKit;
 #import "OCKConnectTableViewCell.h"
 
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class OCKContactInfoTableViewCell;
+@class OCKContactInfoTableViewCell, OCKContactInfo;
 
 @protocol OCKContactInfoTableViewCellDelegate <NSObject>
 

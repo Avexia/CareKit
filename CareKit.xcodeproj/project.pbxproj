@@ -62,7 +62,7 @@
 		248929761C90E70100EBBE1F /* OCKConnectDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 248929651C90E70100EBBE1F /* OCKConnectDetailViewController.m */; };
 		248929771C90E70100EBBE1F /* OCKConnectTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 248929661C90E70100EBBE1F /* OCKConnectTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		248929781C90E70100EBBE1F /* OCKConnectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 248929671C90E70100EBBE1F /* OCKConnectTableViewCell.m */; };
-		2489297B1C90E70100EBBE1F /* OCKConnectTableViewHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 2489296A1C90E70100EBBE1F /* OCKConnectTableViewHeader.h */; };
+		2489297B1C90E70100EBBE1F /* OCKConnectTableViewHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 2489296A1C90E70100EBBE1F /* OCKConnectTableViewHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2489297C1C90E70100EBBE1F /* OCKConnectTableViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2489296B1C90E70100EBBE1F /* OCKConnectTableViewHeader.m */; };
 		2489297D1C90E70100EBBE1F /* OCKConnectViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2489296C1C90E70100EBBE1F /* OCKConnectViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2489297E1C90E70100EBBE1F /* OCKConnectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2489296D1C90E70100EBBE1F /* OCKConnectViewController.m */; };

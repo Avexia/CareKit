@@ -101,4 +101,6 @@
 #import <CareKit/OCKInsightsChartTableViewCell.h>
 #import <CareKit/OCKInsightsRingTableViewCell.h>
 #import <CareKit/OCKInsightsTableViewHeaderView.h>
+#import <CareKit/OCKConnectTableViewHeader.h>
+
 
