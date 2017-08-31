@@ -71,7 +71,8 @@ static NSString *TipSymbol = @"\u2731";
         _titleLabel.backgroundColor = [UIColor whiteColor];
         _titleLabel.textStyle = UIFontTextStyleHeadline;
         _titleLabel.numberOfLines = 0;
-        _titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        _titleLabel.backgroundColor = [UIColor clearColor];
+       _titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
         [self addSubview:_titleLabel];
     }
     
@@ -80,6 +81,7 @@ static NSString *TipSymbol = @"\u2731";
         _textLabel.backgroundColor = [UIColor whiteColor];
         _textLabel.textStyle = UIFontTextStyleSubheadline;
         _textLabel.textColor = [UIColor darkGrayColor];
+        _textLabel.backgroundColor = [UIColor clearColor];
         _textLabel.numberOfLines = 0;
         _textLabel.lineBreakMode = NSLineBreakByWordWrapping;
         [self addSubview:_textLabel];
